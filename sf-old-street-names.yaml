@@ -1,0 +1,513 @@
+# fork of 404 with red
+#thanks to Eric Fischer, Chris Salvano
+import:
+    - https://mapzen.com/carto/refill-style/7/refill-style.yaml
+    - https://mapzen-assets.s3.amazonaws.com/resources/demo.yaml
+
+sources:
+    mapzen:
+        type: TopoJSON
+        url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
+        url_params: 
+            api_key: global.sdk_mapzen_api_key
+
+global:
+    sdk_road_shields: false
+    
+    draw_swap_txt_source:
+        draw:
+            text-blend-order:
+                text_source: global.swap_text_source
+
+        red:
+            filter:
+                - function() { return global.id_1861[feature.id] || global.streets_1861[feature.name]; }
+            draw:
+                text-blend-order:
+                    font:
+                        fill: red
+                
+
+    swap_text_source: | 
+        function() {
+            return global.id_1861[feature.id] || global.streets_1861[feature.name] || feature.name;
+            }
+            
+    swap_text_year: | 
+       function() {
+          return global.id_1861[feature.id] || global.streets_1861[feature].name || feature.name;
+            }    
+
+
+    id_1861:
+        # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
+    
+        8921644: El Dorado St.
+        391862870: Santa Clara St.
+        419657507: Santa Clara St.
+        27028821: Santa Clara St.
+        162324928: Santa Clara St.
+        254759972: Santa Clara St.
+        27028807: Santa Clara St.
+        224384043: Santa Clara St.
+        224384044: Santa Clara St.
+        29482558: Santa Clara St.
+        8917416: Santa Clara St.
+        24444954: Solano St.
+        29482569: Solano St.
+        183198861: Solano St.
+        183198859: Solano St.
+        28843660: Solano St.
+        27239368: Solano St.
+        148902188: Solano St.
+        29482571: Solano St.
+        8917787: Solano St.
+        50501875: Butte St.
+        46272291: Butte St.
+        29482577: Butte St.
+        8916295: Butte St.
+        29482576: Butte St.
+        24444482: Sierra St.
+        28669973: Sierra St.
+        8922049: Sierra St.
+        255170276: Sierra St.
+        152906274: Sierra St.
+        414894752: Sierra St.
+        283523313: Sierra St.
+        255170275: Sierra St.
+        27239291: Sierra St.
+        8922041: Sierra St.
+        389359766: Nevada St.
+        224384048: Nevada St.
+        389359767: Nevada St.
+        24547840: Nevada St.
+        224384049: Nevada St.
+        225847537: Nevada St.
+        133781849: Nevada St.
+        24547841: Nevada St.
+        8920706: Nevada St.
+        46271111: Nevada St.
+        224384051: Nevada St.
+        8920710: Nevada St.
+        8920709: Nevada St.
+        97635888: Nevada St.
+        97635887: Nevada St.
+        27043786: Nevada St.
+        27043782: Nevada St.
+        27239293: Nevada St.
+        8920707: Nevada St.
+        #224384054: Yolo St.
+        #24444478: Yolo St.
+        #8917650: Yolo St.
+        #283523317: Yolo St.
+        #283523315: Yolo St.
+        #24670791: Yolo St.
+        #224384054: Yolo St.
+        #224384054: Yolo St.
+        #224384054: Yolo St.
+        #224384054: Yolo St.
+        24444477: Yolo St.
+        224384056: Yolo St.
+        225847539: Yolo St.
+        224384055: Yolo St.
+        255170283: Yolo St.
+        129381989: Yolo St.
+        283523323: Yolo St.
+        27239299: Yolo St.
+        476750150: Colusi St.
+        30758073: Colusi St.
+        27023110: Colusi St.
+        30758013: Colusi St.
+        256787325: Colusi St.
+        437540989: Colusi St.
+        477788518: Colusi St.
+        417385451: Colusi St.
+        468128865: Colusi St.
+        477788919: Colusi St.
+        477788921: Colusi St.
+        417385444: Colusi St.
+        417385463: Colusi St.
+        468128864: Colusi St.
+        30758421: Colusi St.
+        30758414: Colusi St.
+        417385469: Colusi St.
+        30758376: Colusi St.
+        27239380: Colusi St.
+        283529736: Colusi St.
+        30758418: Colusi St.
+        27043792: Colusi St.
+        408595882: Colusi St.
+        417385466: Colusi St.
+        32930330: Colusi St.
+        27044037: Colusi St.
+        133755896: Colusi St.
+        417385460: Colusi St.
+        32395974: Colusi St.
+        133755900: Colusi St.
+        23968587: Colusi St.
+        27023142: Colusi St.
+        8919908: Colusi St.
+
+        
+        255330068: 3rd Ave.
+        111552058: 3rd Ave.
+        397144001: 3rd Ave.
+        397144265: 3rd Ave.
+        397144264: 3rd Ave.
+        397104880: 3rd Ave.
+        254299142: 3rd Ave.
+        417396768: 3rd Ave.
+        417396772: 3rd Ave.
+        417396764: 3rd Ave.
+        437913409: 3rd Ave.
+        133735130: 3rd Ave.
+        396945235: 3rd Ave.
+        26943623: 3rd Ave.
+        27656675: 3rd Ave.
+        396945233: 3rd Ave.
+        133755930: 3rd Ave.
+        280398663: 3rd Ave.
+        280398660: 3rd Ave.
+        280398655: 3rd Ave.
+        27656674: 3rd Ave.
+        155373677: Old County Rd.
+        8921086: Old County Rd.
+        41380022: Old County Rd.
+        8921059: Old County Rd.
+        28952785: Old County Rd.
+        255178102: Old County Rd.
+        285975137: Old County Rd.
+        397103492: Old County Rd.
+        214514829: Old County Rd.
+        286434721: Old County Rd.
+        158468712: Point Lobos Ave.
+        158468718: Point Lobos Ave.
+        158468953: Point Lobos Ave.
+        396961256: Point Lobos Ave.
+        396962024 : Point Lobos Ave.
+        158468958 : Point Lobos Ave.
+        396959898 : Point Lobos Ave.
+        396959344 : Point Lobos Ave.
+        158468954 : Point Lobos Ave.
+        158468956 : Point Lobos Ave.
+        158468962 : Point Lobos Ave.
+        396959340 : Point Lobos Ave.
+        86331208 : Point Lobos Ave.
+        396959339 : Point Lobos Ave.
+        396959901 : Point Lobos Ave.
+        158468959 : Point Lobos Ave.
+        158468711 : Point Lobos Ave.
+        158468957 : Point Lobos Ave.
+        396962022 : Point Lobos Ave.
+        396959346 : Point Lobos Ave.
+        396959904 : Point Lobos Ave.
+        396959345 : Point Lobos Ave.
+        86331242 : Point Lobos Ave.
+        396959338 : Point Lobos Ave.
+        158804429 : Point Lobos Ave.
+        396959350 : Point Lobos Ave.
+        158804435 : Point Lobos Ave.
+        254297756 : Point Lobos Ave.
+        396950805 : Point Lobos Ave.
+        396950802 : Point Lobos Ave.
+        396950801 : Point Lobos Ave.
+        396950798 : Point Lobos Ave.
+        158804440 : Point Lobos Ave.
+        158804447 : Point Lobos Ave.
+        396950800 : Point Lobos Ave.
+        396950807 : Point Lobos Ave.
+        396950812 : Point Lobos Ave.
+        396950799 : Point Lobos Ave.
+        158804434 : Point Lobos Ave.
+        396950806 : Point Lobos Ave.
+        396950809 : Point Lobos Ave.
+        158804430 : Point Lobos Ave.
+        158804431 : Point Lobos Ave.
+        396950822 : Point Lobos Ave.
+        396950821 : Point Lobos Ave.
+        158804432 : Point Lobos Ave.
+        396948936 : Point Lobos Ave.
+        396948934 : Point Lobos Ave.
+        396948935 : Point Lobos Ave.
+        396947820 : Point Lobos Ave.
+        158804439 : Point Lobos Ave.
+        254453305 : Point Lobos Ave.
+        396947818 : Point Lobos Ave.
+        158804446 : Point Lobos Ave.
+        396947819 : Point Lobos Ave.
+        91517994 : Point Lobos Ave.
+        86331269 : Point Lobos Ave.
+        396945625 : Point Lobos Ave.
+        396945626 : Point Lobos Ave.
+        396945627 : Point Lobos Ave.
+        396945627 : Point Lobos Ave.
+        318094348 : Point Lobos Ave.
+        8919594 : Point Lobos Ave.
+        396945623 : Point Lobos Ave.
+        399565819 : Point Lobos Ave.
+        399599875 : Point Lobos Ave.
+        474100982 : Point Lobos Ave.
+        224199015: Point Lobos Ave.
+        396947821: Point Lobos Ave.
+        158804437: Point Lobos Ave.
+        396962028: Point Lobos Ave.
+        396959341: Point Lobos Ave.
+        158468960: Point Lobos Ave.
+        8915957: 33rd St.
+        32005399: 33rd St.
+        361615805: 33rd St.
+        8918084: 34th St.
+        110353197: 34th St.
+        8918084: 34th St.
+        8918084: 34th St.
+        8921052: Plank Road
+        26943484: Plank Road
+        397093084: Plank Road
+        417087474: Plank Road
+        417087489: Plank Road
+        23959829: Plank Road
+        27029263: Plank Road
+        88572874: Plank Road
+        88572887: Plank Road
+        88572914: Plank Road
+        88572941: Plank Road
+        88572932: Plank Road
+        51392402: Plank Road
+        51392400: Plank Road
+        111560680: Plank Road
+        111560679: Plank Road
+        86334994: Plank Road
+        24335441: Plank Road
+        417087485: Plank Road
+
+
+    streets_1861:
+        Divisadero St.: Devisadaro St.
+        Ocean Ave.: Ocean House Rd.
+        # San Jose Ave.: Old San Jose Rd. #1865
+        San Jose Ave.:
+            name: Old San Jose Rd.
+            # date: 1865
+            # source: url
+        
+        # Richland Ave.: 34th St. #SFA E48, 1890
+        # Highland Ave.: 33rd St. #SFA E48, 1890
+        Los Palmos Dr.: 32nd St. # SFA E144, 1892
+        Church St.: Silver St. #SFA C144, 1851
+        Sanchez St.: Cristal St. #SFA C144, 1851
+        Noe St.: Pearl St. #SFA C144, 1851
+        Castro St.: Diamond St. #SFA C144, 1851
+        
+        #1854, walkingsf/5417086088
+        Collingwood St.: Blackwell St. #1854, walkingsf/5417086088
+        Diamond St.: Douglass St. #1854, walkingsf/5417086088
+        Eureka St.: Homer St. #1854, walkingsf/5417086088
+        Douglass St.: Young America St.
+        Worth St.: Ocean St.
+        Homestead St.: Ocean St.
+        Ord St.: Ocean St.
+        Hattie St.: Sonora St.
+        Hoffman Ave.: Sonora St.
+        Fulton St.: Shilaber
+        Grove St.: Parsons St.
+        Hayes St.: Hays St.
+        Fell St.: William St.
+        Oak St.: Graham St.
+        Page St.: Haight St.
+        Haight St.: Middleton St.
+        Waller St.: Beverly St.
+        
+
+        Brook St.: 31st. St.
+        Stillings Ave.: 34th St. # SFA E144, 1892
+        30th St.: Grove St.
+        29th St.: Dale St.
+        28th St.: Yale St.
+        27th St.: Figg St.
+        Cesar Chavez St.: Army St.
+        26th St.: Navy St.
+        25th St.: Temple St.
+        24th St.: Park St.
+        23rd St.: Horner St.
+        Alvarado St.: M St.
+        22nd St.: John St.
+        21st St.: Alta St.
+        20th St.: Napa St.
+        19th St.: Eagle St.
+        18th St.: Falcon St.
+        17th St.: Corbett St.
+        16th St.: Center St.
+        15th St.: Sparks St.
+        14th St.: Tracy St.
+        13th St.: Ellen St.
+        12th St.: Brown St.
+        11th St.: Wood St.
+        10th St.: Thorne St.
+        9th St.: Johnston St.
+        8th St.: Price St.
+        7th St.: Harris St.
+        6th St.: Simmons St.
+        
+        Duboce Ave.: Ridley St.
+        S Van Ness Ave.: Howard St.
+        Grant Ave.: Dupont St.
+        Tiffany Ave.: Valencia St.
+        Division St.: New Channel St.
+        Treat Ave.: Division St.
+        Polk St.: Stark St.
+        3rd St.: Railroad Ave.
+        Marina Blvd.: Tonquin St.
+        Bayshore Blvd.: San Bruno Rd.
+        Appleton Ave.: West Ave.
+        Park St.:  West Park St.
+        
+        # Hunters Point / Bayview / Butchertown
+        Cargo Wy.: 1st Ave S.
+        Burke Ave.: 2nd Ave S.
+        Custer Ave.: 3rd Ave S.
+        Davidson Ave.: 4th Ave S.
+        Evans Ave.: 5th Ave S.
+        Fairfax Ave.: 6th Ave S.
+        Galvez Ave.: 7th Ave S.
+        Hudson Ave.: 8th Ave S.
+        Inness Ave.: 9th Ave S.
+        Jerrold Ave.: 10th Ave S.
+        Kirkwood Ave.: 11th Ave S.
+        La Salle Ave.: 12th Ave S.
+        McKinnon Ave.: 13th Ave S.
+        Newcomb Ave.: 14th Ave S.
+        Oakdale Ave.: 15th Ave S.
+        Palou Ave.: 16th Ave S.
+        Quesada Ave.: 17th Ave S.
+        Revere Ave.: 18th Ave S.
+        Shafter Ave.: 19th Ave S.
+        Thomas Ave.: 20th Ave S.
+        Underwood Ave.: 21st Ave S.
+        Van Dyke Ave.: 22nd Ave S.
+        Wallace Ave.: 23rd Ave S.
+        Yosemite Ave.: 24th Ave S.
+        Armstrong Ave.: 25th Ave S.
+        Bancroft Ave.: 26th Ave S.
+        Carroll Ave.: 27th Ave S.
+        Donner Ave.: 28th Ave S.
+        Egbert Ave.: 29th Ave S.
+        Fitzgerald Ave.: 30th Ave S.
+        Gilman Ave.: 31st Ave S.
+        Hollister Ave.: 32nd Ave S.
+        Ingerson Ave.: 33rd Ave S.
+        Jamestown Ave.: 34th Ave S.
+        Key Ave.: 35th Ave S.
+        Le Conte Ave.: 36th Ave S.
+        Meade Ave.: 37th Ave S.
+        Alvord Ave.: A St S.
+        Fischer Ave.: B St. S.
+        Horn Ave.: B St S.
+        Coleman Ave.: C St S.
+        McCann St.: C St S.
+        Donahue St.: D St S.
+        Earl St.: E St S.
+        Fitch St.: F St S.
+        Griffith St.: G St S.
+        Hawes St.: H St S.
+        Ingalls St.: I St S.
+        Jennings St.: J St S.
+        Keith St.: K St S.
+        Lane St.: L St S.
+        Mendell St.: M St S.
+        Newhall St.: N St S.
+        Phelps St.: P St S.
+        Quint St.: Q St S.
+        Rankin St.: R St S.
+        Selby St.: S St S.
+        Toland St.: T St S.
+        Upton St.: U St S.
+        The Embarcadero: East St.
+        Columbus Ave.: Montgomery Ave.
+        # Geary Blvd.: Point Lobos Ave.
+        
+        # Outerlands
+        Arguello Blvd.: 1st Ave.
+        La Playa St.: 49th Ave.
+        Anza St.: A St.
+        Balboa St.: B St.
+        Cabrillo St.: C St.
+        Fulton St.: D St.
+        Lincoln Wy.: H St.
+        Irving St.: I St.
+        Judah St.: J St.
+        Kirkham St.: K St.
+        Lawton St.: L St.
+        Moraga St.: M St.
+        Noriega St.: N St.
+        Ortega St.: O St.
+        Pacheco St.: P St.
+        Quintara St.: Q St.
+        Rivera St.: R St.
+        Santiago St.: S St.
+        Taraval St.: T St.
+        Ulloa St.: U St.
+        Vicente St.: V St.
+        Wawona St.: W St.
+        Yorba St.: Y St.
+
+
+        
+layers:
+    pois:
+        highway-exit:
+            visible: false
+    roads: 
+        el_dorado_15th:
+            filter: {id: 8921644}
+            draw:
+                lines:
+                    color: red
+                    order: 1000
+        highway:
+            visible: false
+        major_road:
+            trunk_primary:
+                routes:
+                    labels-trunk_primary-route-z16:
+                        old_labels: global.draw_swap_txt_source
+                    labels-trunk_primary-route-z17-z18:
+                        old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z13:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z14:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z18:
+                    old_labels: global.draw_swap_txt_source
+            secondary:
+                labels-secondary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z18:
+                    old_labels: global.draw_swap_txt_source
+            tertiary:
+                labels-tertiary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z18:
+                    old_labels: global.draw_swap_txt_source
+        minor_road:
+            labels-minor_road-z15:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z16:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z17:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z18:
+                old_labels: global.draw_swap_txt_source

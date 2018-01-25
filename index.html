@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Web Map</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css" />
+    <script src="https://mapzen.com/js/mapzen.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; }
+      #map { height: 100%; width: 100%; position: absolute; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map = L.Mapzen.map('map', {
+        center: [37.7435, -122.4218],
+        zoom: 15.5458,
+        tangramOptions: {
+          scene: 'sf-old-street-names.yaml'
+        }
+      });
+      var geocoderOptions = {
+        url: 'https://api.geocode.earth/v1/search'
+      };
+      var geocoder = L.Mapzen.geocoder('ge-5bdbeb8dbfb3a8f0', geocoderOptions);
+    geocoder.addTo(map);
+    </script>
+  </body>
+</html>
