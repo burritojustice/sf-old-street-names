@@ -1,15 +1,14 @@
 # fork of 404 with red
 #thanks to Eric Fischer, Chris Salvano
 import:
-    - https://mapzen.com/carto/refill-style/7/refill-style.yaml
-    - https://mapzen-assets.s3.amazonaws.com/resources/demo.yaml
+    - https://nextzen.org/carto/refill-style/7/refill-style.yaml
 
 sources:
     mapzen:
         type: TopoJSON
-        url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
+        url: https://tile.nextzen.org/tilezen/vector/v1/all/{z}/{x}/{y}.topojson
         url_params: 
-            api_key: global.sdk_mapzen_api_key
+            api_key: DpCrhQqsR2igQPEINRTfcw
 
 global:
     sdk_road_shields: false
