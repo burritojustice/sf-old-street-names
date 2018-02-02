@@ -5,7 +5,7 @@ import:
     #- https://burritojustice.github.io/map-assets/demo.yaml
 
 sources:
-    mapzen: 
+    nextzen: 
         # url: https://{s}.tiles.nextzen.org/mapzen/vector/v1/512/all/{z}/{x}/{y}.topojson
         # url_subdomains: ['a', 'b', 'c', 'd']
         url_params: 
