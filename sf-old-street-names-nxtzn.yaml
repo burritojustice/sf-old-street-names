@@ -1,14 +1,15 @@
 # fork of 404 with red
 #thanks to Eric Fischer, Chris Salvano
 import:
-    - https://mapzen.com/carto/refill-style/7/refill-style.yaml
-    - https://mapzen-assets.s3.amazonaws.com/resources/demo.yaml
+    - https://nextzen.org/carto/refill-style/7/refill-style.yaml
+    #- https://burritojustice.github.io/map-assets/demo.yaml
 
 sources:
     mapzen: 
         url: https://{s}.tiles.nextzen.org/mapzen/vector/v1/512/all/{z}/{x}/{y}.topojson
         url_subdomains: ['a', 'b', 'c', 'd']
-        url_params: null
+        url_params: 
+            api_key: DpCrhQqsR2igQPEINRTfcw
     # mapzen:
     #     type: TopoJSON
     #     url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
