@@ -1,7 +1,7 @@
 # fork of 404 with red
 #thanks to Eric Fischer, Chris Salvano
 import:
-    - https://nextzen.org/carto/refill-style/7/refill-style.yaml
+    - https://nextzen.org/carto/refill-style/11/refill-style.yaml
     #- https://burritojustice.github.io/map-assets/demo.yaml
 
 sources:
