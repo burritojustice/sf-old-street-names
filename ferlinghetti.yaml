@@ -7,7 +7,6 @@ global:
 
     streets:
         Columbus Ave.: Ferlinghetti Ave.
-        The Embarcadero: testing
 
     sdk_api_key: DpCrhQqsR2igQPEINRTfcw
     sdk_road_shields: false
@@ -53,12 +52,12 @@ layers:
         highway-exit:
             visible: false
     roads: 
-#         el_dorado_15th:
-#             filter: {id: 8921644}
-#             draw:
-#                 lines:
-#                     color: red
-#                     order: 1000
+        el_dorado_15th:
+            filter: {id: 8921644}
+            draw:
+                lines:
+                    color: red
+                    order: 1000
         highway:
             visible: false
         major_road:
@@ -76,3 +75,34 @@ layers:
                     old_labels: global.draw_swap_txt_source
                 labels-trunk_primary-z16:
                     old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z18:
+                    old_labels: global.draw_swap_txt_source
+            secondary:
+                labels-secondary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z18:
+                    old_labels: global.draw_swap_txt_source
+            tertiary:
+                labels-tertiary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z18:
+                    old_labels: global.draw_swap_txt_source
+        minor_road:
+            labels-minor_road-z15:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z16:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z17:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z18:
+                old_labels: global.draw_swap_txt_source
