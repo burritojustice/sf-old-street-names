@@ -1,0 +1,55 @@
+# fork of 404 with red
+#thanks to Eric Fischer, Chris Salvano
+import:
+    - https://www.nextzen.org/carto/refill-style/11/refill-style.zip
+    #- https://burritojustice.github.io/map-assets/demo.yaml
+
+# sources:
+#    nextzen: 
+#        # url: https://{s}.tiles.nextzen.org/mapzen/vector/v1/512/all/{z}/{x}/{y}.topojson
+#        # url_subdomains: ['a', 'b', 'c', 'd']
+#        url_params: 
+#            api_key: DpCrhQqsR2igQPEINRTfcw
+    # mapzen:
+    #     type: TopoJSON
+    #     url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
+    #     url_params: 
+    #         api_key: global.sdk_mapzen_api_key
+
+global:
+    sdk_api_key: DpCrhQqsR2igQPEINRTfcw
+    sdk_road_shields: false
+    
+    draw_swap_txt_source:
+        draw:
+            text-blend-order:
+                text_source: global.swap_text_source
+
+#         red:
+#             filter:
+#                 - function() { return global.id_1861[feature.id] || global.streets_1861[feature.name]; }
+#             draw:
+#                 text-blend-order:
+#                     font:
+#                         fill: red
+                
+
+    swap_text_source: | 
+        function() {
+            return global.id_1861[feature.id] || global.streets_1861[feature.name] || feature.name;
+            }
+            
+    swap_text_year: | 
+       function() {
+          return global.id_1861[feature.id] || global.streets_1861[feature].name || feature.name;
+            }    
+
+
+    id_1861:
+        # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
+    
+        #. 8921644: El Dorado St.
+
+
+    streets_1861:
+        Columbus Ave.: Ferlinghetti Ave.
