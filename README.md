@@ -8,13 +8,14 @@
 
 ## How does it work?
 
-In the scene file, you can create a yaml list of streets and substitutions.
+In the [scene file](https://github.com/burritojustice/sf-old-street-names/blob/master/sf-old-street-names-nxtzn.yaml), you can create a yaml list of streets and substitutions.
 
   
     streets_1861:
         Divisadero St.: Devisadaro St.
         Ocean Ave.: Ocean House Rd.
         San Jose Ave.: Old San Jose Rd.
+        Columbus Ave.: Montgomery Ave.
         
         
 You can also reference them by OSM ID:
@@ -35,7 +36,7 @@ Then you define a global function that looks for those names or IDs, and substit
             return global.id_1861[feature.id] || global.streets_1861[feature.name] || feature.name;
             }
             
-You could put that function in this one, but this works and I'm not messing with it right now:
+You could have put that function in this one, but this works and I'm not messing with it right now:
 
     draw_swap_txt_source:
         draw:
@@ -44,34 +45,34 @@ You could put that function in this one, but this works and I'm not messing with
 
 The trickier part is finding the road types in whatever map style you're trying to hijack -- in this case, it's [Refill](https://github.com/tangrams/refill-style). (This is laborious and you need a pretty good understanding of how road labels work, but you can see what's happening.)
 
-  layers:
-    pois:
-        highway-exit:
-            visible: false
-    roads: 
-        major_road:
-            trunk_primary:
-                routes:
-                    labels-trunk_primary-route-z16:
-                        old_labels: global.draw_swap_txt_source
-                    labels-trunk_primary-route-z17-z18:
-                        old_labels: global.draw_swap_txt_source
-                labels-trunk_primary-z13:
-                    old_labels: global.draw_swap_txt_source
-                labels-trunk_primary-z14:
-                    old_labels: global.draw_swap_txt_source
-                labels-trunk_primary-z15:
-                    old_labels: global.draw_swap_txt_source
-                labels-trunk_primary-z16:
-                    old_labels: global.draw_swap_txt_source
-                labels-trunk_primary-z17:
-                    old_labels: global.draw_swap_txt_source
-                labels-trunk_primary-z18:
-                    old_labels: global.draw_swap_txt_source
-            secondary:
-                labels-secondary-z15:
-                    old_labels: global.draw_swap_txt_source
-                labels-secondary-z16:
+    layers:
+      pois:
+          highway-exit:
+              visible: false
+      roads: 
+          major_road:
+              trunk_primary:
+                  routes:
+                      labels-trunk_primary-route-z16:
+                          old_labels: global.draw_swap_txt_source
+                      labels-trunk_primary-route-z17-z18:
+                          old_labels: global.draw_swap_txt_source
+                  labels-trunk_primary-z13:
+                      old_labels: global.draw_swap_txt_source
+                  labels-trunk_primary-z14:
+                      old_labels: global.draw_swap_txt_source
+                  labels-trunk_primary-z15:
+                      old_labels: global.draw_swap_txt_source
+                  labels-trunk_primary-z16:
+                      old_labels: global.draw_swap_txt_source
+                  labels-trunk_primary-z17:
+                      old_labels: global.draw_swap_txt_source
+                  labels-trunk_primary-z18:
+                      old_labels: global.draw_swap_txt_source
+              secondary:
+                  labels-secondary-z15:
+                      old_labels: global.draw_swap_txt_source
+                  labels-secondary-z16:
 
 ## To Do
 
