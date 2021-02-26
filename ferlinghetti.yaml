@@ -36,7 +36,7 @@ global:
 
     swap_text_source: | 
         function() {
-            return global.id_1861[feature.id] || global.streets_1861[feature.name] || feature.name;
+            return global.streets_1861[feature.name] || feature.name;
             }
             
     swap_text_year: | 
@@ -48,7 +48,7 @@ global:
     id_1861:
         # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
     
-        #. 8921644: El Dorado St.
+        7: X
 
 
     streets_1861:
