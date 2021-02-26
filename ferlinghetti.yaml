@@ -14,7 +14,7 @@ global:
 
 #         red:
 #             filter:
-#                 - function() { return global.id_1861[feature.id] || global.streets_1861[feature.name]; }
+#                 - function() { return global.id[feature.id] || global.streets[feature.name]; }
 #             draw:
 #                 text-blend-order:
 #                     font:
@@ -23,20 +23,49 @@ global:
 
     swap_text_source: | 
         function() {
-            return global.streets_1861[feature.name] || feature.name;
+            return global.streets[feature.name] || feature.name;
             }
             
     swap_text_year: | 
        function() {
-          return global.id_1861[feature.id] || global.streets_1861[feature].name || feature.name;
+          return global.id[feature.id] || global.streets_1861[feature].name || feature.name;
             }    
 
 
-    id_1861:
+    id:
         # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
     
         7: X
 
 
-    streets_1861:
+    streets:
         Columbus Ave.: Ferlinghetti Ave.
+        
+layers:
+    pois:
+        highway-exit:
+            visible: false
+    roads: 
+#         el_dorado_15th:
+#             filter: {id: 8921644}
+#             draw:
+#                 lines:
+#                     color: red
+#                     order: 1000
+        highway:
+            visible: false
+        major_road:
+            trunk_primary:
+                routes:
+                    labels-trunk_primary-route-z16:
+                        old_labels: global.draw_swap_txt_source
+                    labels-trunk_primary-route-z17-z18:
+                        old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z13:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z14:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z16:
+                    old_labels: global.draw_swap_txt_source
