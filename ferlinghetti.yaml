@@ -21,13 +21,13 @@ global:
                         return global.streets[feature.name] || feature.name;
                     }
 
-        red:
-            filter:
-                - function() { return global.id[feature.id] || global.streets[feature.name]; }
-            draw:
-                text-blend-order:
-                    font:
-                        fill: red
+#         red:
+#             filter:
+#                 - function() { return global.id[feature.id] || global.streets[feature.name]; }
+#             draw:
+#                 text-blend-order:
+#                     font:
+#                         fill: red
                 
 
     swap_text_source: | 
