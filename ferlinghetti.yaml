@@ -12,13 +12,13 @@ global:
             text-blend-order:
                 text_source: global.swap_text_source
 
-#         red:
-#             filter:
-#                 - function() { return global.id[feature.id] || global.streets[feature.name]; }
-#             draw:
-#                 text-blend-order:
-#                     font:
-#                         fill: red
+        red:
+            filter:
+                - function() { return global.id[feature.id] || global.streets[feature.name]; }
+            draw:
+                text-blend-order:
+                    font:
+                        fill: red
                 
 
     swap_text_source: | 
@@ -26,16 +26,16 @@ global:
             return global.streets[feature.name] || feature.name;
             }
             
-    swap_text_year: | 
-       function() {
-          return global.id[feature.id] || global.streets_1861[feature].name || feature.name;
-            }    
+#     swap_text_year: | 
+#        function() {
+#           return global.id[feature.id] || global.streets_1861[feature].name || feature.name;
+#             }    
 
 
-    id:
-        # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
+#     id:
+#         # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
     
-        7: X
+#         7: X
 
 
     streets:
