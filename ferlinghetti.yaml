@@ -40,6 +40,8 @@ global:
 
     streets:
         Columbus Ave.: Ferlinghetti Ave.
+        Divisadero St.: Devisadaro St.
+
         
 layers:
     pois:
