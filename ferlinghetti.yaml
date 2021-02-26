@@ -4,6 +4,11 @@ import:
     - https://www.nextzen.org/carto/refill-style/11/refill-style.zip
 
 global:
+
+    streets:
+        Columbus Ave.: Ferlinghetti Ave.
+        The Embarcadero: testing
+
     sdk_api_key: DpCrhQqsR2igQPEINRTfcw
     sdk_road_shields: false
     
@@ -41,9 +46,6 @@ global:
     
 #         7: X
 
-
-    streets:
-        Columbus Ave.: Ferlinghetti Ave.
 
         
 layers:
