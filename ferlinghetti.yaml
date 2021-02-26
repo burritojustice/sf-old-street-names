@@ -2,19 +2,6 @@
 #thanks to Eric Fischer, Chris Salvano
 import:
     - https://www.nextzen.org/carto/refill-style/11/refill-style.zip
-    #- https://burritojustice.github.io/map-assets/demo.yaml
-
-# sources:
-#    nextzen: 
-#        # url: https://{s}.tiles.nextzen.org/mapzen/vector/v1/512/all/{z}/{x}/{y}.topojson
-#        # url_subdomains: ['a', 'b', 'c', 'd']
-#        url_params: 
-#            api_key: DpCrhQqsR2igQPEINRTfcw
-    # mapzen:
-    #     type: TopoJSON
-    #     url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
-    #     url_params: 
-    #         api_key: global.sdk_mapzen_api_key
 
 global:
     sdk_api_key: DpCrhQqsR2igQPEINRTfcw
