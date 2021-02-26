@@ -10,7 +10,11 @@ global:
     draw_swap_txt_source:
         draw:
             text-blend-order:
-                text_source: global.swap_text_source
+#                 text_source: global.swap_text_source
+                text_source: |
+                    function() {
+                        return global.streets[feature.name] || feature.name;
+                    }
 
         red:
             filter:
@@ -40,7 +44,6 @@ global:
 
     streets:
         Columbus Ave.: Ferlinghetti Ave.
-        Divisadero St.: Devisadaro St.
 
         
 layers:
