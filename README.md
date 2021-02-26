@@ -1,6 +1,6 @@
 # sf-old-street-names
 
-##Fun with feature name substitution using tangram.js
+## Fun with feature name substitution using tangram.js
 
 - some [old San Francisco street names](https://burritojustice.github.io/sf-old-street-names/) in red
 
@@ -73,6 +73,6 @@ The trickier part is finding the road types in whatever map style you're trying 
                     old_labels: global.draw_swap_txt_source
                 labels-secondary-z16:
 
-##To Do
+## To Do
 
 - add a keypress event to toggle the names back and forth for a `map time machine`
