@@ -1,0 +1,124 @@
+# fork of 404 with red
+#thanks to Eric Fischer, Chris Salvano
+
+
+import:
+    - https://www.nextzen.org/carto/refill-style/11/refill-style.zip
+
+global:
+
+    streets:
+        Columbus Ave.: Ferlinghetti Ave.
+        # The Embarcadero: testing
+
+    sdk_api_key: DpCrhQqsR2igQPEINRTfcw
+    sdk_road_shields: false
+    
+    draw_swap_txt_source:
+        draw:
+            text-blend-order:
+#                 text_source: global.swap_text_source
+                text_source: |
+                    function() {
+                        return global.streets[feature.name] || feature.name;
+                    }
+
+#         red:
+#             filter:
+#                 - function() { return global.id[feature.id] || global.streets[feature.name]; }
+#             draw:
+#                 text-blend-order:
+#                     font:
+#                         fill: red
+                
+
+    swap_text_source: | 
+        function() {
+            return global.streets[feature.name] || feature.name;
+            }
+            
+#     swap_text_year: | 
+#        function() {
+#           return global.id[feature.id] || global.streets_1861[feature].name || feature.name;
+#             }    
+
+
+#     id:
+#         # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
+    
+#         7: X
+
+sources:
+    transamerica:
+        type: GeoJSON
+        url: https://raw.githubusercontent.com/burritojustice/sf-old-street-names/master/transamerica_pyramid_segments.geojson
+        
+layers:
+    transamerica:
+        data: {source: transamerica}
+        draw:
+            lines:
+                color: red
+                width: 1px
+                order: 1000
+                extrude: true
+                
+                
+    pois:
+        highway-exit:
+            visible: false
+    roads: 
+        el_dorado_15th:
+            filter: {id: 8921644}
+            draw:
+                lines:
+                    color: red
+                    order: 1000
+        highway:
+            visible: false
+        major_road:
+            trunk_primary:
+                routes:
+                    labels-trunk_primary-route-z16:
+                        old_labels: global.draw_swap_txt_source
+                    labels-trunk_primary-route-z17-z18:
+                        old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z13:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z14:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-trunk_primary-z18:
+                    old_labels: global.draw_swap_txt_source
+            secondary:
+                labels-secondary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-secondary-z18:
+                    old_labels: global.draw_swap_txt_source
+            tertiary:
+                labels-tertiary-z15:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z16:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z17:
+                    old_labels: global.draw_swap_txt_source
+                labels-tertiary-z18:
+                    old_labels: global.draw_swap_txt_source
+        minor_road:
+            labels-minor_road-z15:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z16:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z17:
+                old_labels: global.draw_swap_txt_source
+            labels-minor_road-z18:
+                old_labels: global.draw_swap_txt_source
