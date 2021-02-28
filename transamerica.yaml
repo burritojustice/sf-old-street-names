@@ -47,6 +47,11 @@ global:
 #         # uses OSM IDs to override old names in the old street list (think 3rd St vs Railroad Ave)
     
 #         7: X
+styles:
+    _polygons:
+        base: polygons
+        blend: inlay
+        blend_order: 0
 
 sources:
     transamerica:
@@ -54,16 +59,102 @@ sources:
         url: https://raw.githubusercontent.com/burritojustice/sf-old-street-names/master/transamerica_pyramid_segments.geojson
         
 layers:
-    transamerica:
+    buildings:
+        filter:
+            not:
+                # - volume: 1238120
+                - id: 24222973
+                - id: 451336902
+                - id: 136615987
+            # not:
+            #     - landuse_kind: attraction
+            # not:
+            #     id: 24222973
+                # volume: 1238120
+    transamerica_:
+        enabled: false
         data: {source: transamerica}
         draw:
             lines:
-                color: red
-                width: 1px
-                order: 1000
+                color: [0,0,0,0.45]
+                width: 2px
+                order: 998
                 extrude: true
-                
-                
+        # draw:
+        #     _polygons:
+        #         color: [1,0,0,0.25]
+        #         # width: 1px
+        #         order: 999
+        #         extrude: true
+
+
+    transamerica:
+        # enabled: false
+        data: { source: transamerica }
+        filter:
+            not: { location: underground }
+       # set default footprint and extrusion draw properties, but don't draw by default (rules below will turn visibility on)
+        draw:
+            polygons:
+                visible: false
+                order: 329
+                color: global.white_color
+            lines:
+                visible: false
+                style: lines
+                order: 330
+                color: [[14, global.light_color], [16, global.midlight_color], [19, global.dark_color]]
+                width: [[14, 0.3px], [15, 0.5px], [16, 0.75px],[18, 0.75px], [19, 1px]]
+
+        # building footprints, pre-extrusion
+        footprints:
+            # enabled: false
+            # filter:
+            #     any:
+            #         - { $zoom: [13], scale_rank: [1,2] }
+            #         - { $zoom: [14], scale_rank: [1,2,3] }
+            #         - { $zoom: [15], height: { min: 100 } }
+            #         - { $zoom: [15], area: { min: 500 } }
+            #         - { $zoom: [15], volume: { min: 100000 } }
+            #         - { $zoom: [16], area: { min: 100 } }
+            #         - { $zoom: [16], volume: { min: 50000 } }
+            #         - { $zoom: { min: 17 }, area: true }
+            draw:
+                polygons:
+                    visible: true
+                lines:
+                    visible: true
+
+            # 3d buildings
+            extrude:
+                # filter:
+                #     all:
+                #         - function() { return global.sdk_building_extrude; }
+                #         - any:
+                #             - { $zoom: [15], height: { min: 190 } }
+                #             - { $zoom: [15], area: { min: 5000 } }
+                #             - { $zoom: [15], volume: { min: 100000 } }
+                #             - { $zoom: [16], height: { min: 100 } }
+                #             - { $zoom: [16], area: { min: 3500 } }
+                #             - { $zoom: [16], volume: { min: 50000 } }
+                #             - { $zoom: [17], area: { min: 500 } }
+                #             - { $zoom: [17], volume: { min: 15000 } }
+                #             - { $zoom: { min: 18 } }
+                #         - not:
+                #             - layer: [-1, -2, -3, -4, -5]
+                draw:
+                    polygons:
+                        visible: true
+                        order: 438
+                        # style: building-grid
+                        # extrude: global.building_extrude_height
+                        # color: global.white_color
+                    lines:
+                        visible: true
+                        order: 439
+                        style: building-lines
+                        extrude: global.building_extrude_height
+
     pois:
         highway-exit:
             visible: false
