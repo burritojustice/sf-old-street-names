@@ -56,7 +56,7 @@ styles:
 sources:
     transamerica:
         type: GeoJSON
-        url: https://raw.githubusercontent.com/burritojustice/sf-old-street-names/master/transamerica_pyramid_segments.geojson
+        url: https://raw.githubusercontent.com/burritojustice/sf-old-street-names/master/transamerica/transamerica_pyramid_segments.geojson
         
 layers:
     buildings:
