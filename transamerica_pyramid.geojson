@@ -1,0 +1,56 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              [
+                -122.40313886871262, 
+                37.7953694687126
+              ], 
+              [
+                -122.40304126871261, 
+                37.7948843687126
+              ], 
+              [
+                -122.40243066871261, 
+                37.7949610687126
+              ], 
+              [
+                -122.40245806871262, 
+                37.795097468712605
+              ], 
+              [
+                -122.40249916871262, 
+                37.7953015687126
+              ], 
+              [
+                -122.40252826871262, 
+                37.7954461687126
+              ], 
+              [
+                -122.40313886871262, 
+                37.7953694687126
+              ]
+            ]
+          ]
+        ], 
+        "type": "MultiPolygon"
+      }, 
+      "properties": {
+        "addr:housenumber": "600", 
+        "building": "yes", 
+        "ele": "5", 
+        "height": "260 m", 
+        "name": "Transamerica Pyramid", 
+        "roof:height": "260 m", 
+        "roof:shape": "pyramidal",
+    	"volume": 1238120
+      }, 
+      "type": "Feature"
+    }
+  ], 
+  "name": "transamerica_pyramid_qgis", 
+  "type": "FeatureCollection"
+}
